@@ -1,9 +1,9 @@
 import React from 'react';
 import { Button, ContainerButton, TextButton } from './button-style';
-import { GestureResponderEvent, TouchableOpacityProps } from 'react-native';
+import { TouchableOpacityProps } from 'react-native';
 
 interface ButtonProps extends TouchableOpacityProps {
-  variant: string
+  variant: "primary" | "secondary" | "tertiary"
 }
 
 const ButtonDefault: React.FC <ButtonProps> = ({children, variant, onPress}) => {
