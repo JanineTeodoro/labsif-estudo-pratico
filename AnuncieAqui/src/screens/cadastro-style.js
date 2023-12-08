@@ -5,14 +5,10 @@ export const MainContainer = styled.View`
   alignItems: center;
 `
 
-export const TouchableOpacity = styled.View`
+export const Formulario = styled.View`
   margin: 20px 0 50px 0;
 `
 
 export const SubText = styled.Text`
-  margin: 20px 0 5px 0;
-`
-
-export const Image = styled.Image`
   margin: 20px 0 5px 0;
 `
