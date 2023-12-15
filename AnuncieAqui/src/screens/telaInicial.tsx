@@ -1,22 +1,22 @@
 import { TitleInitial } from './login-style'
-import Button from '../../src/components/button';
-import Input from '../../src/components/input'
 import React from 'react';
-import RadioButtonProfile from '../components/radioButtonProfile';
-import { MainContainer, Image, SubText, TouchableOpacity } from './telaInicial-style';
+import { MainContainer, CardList } from './telaInicial-style';
+import Card from '../components/card';
+
 
 const TelaInicial:React.FC = () => {
   return (
     <MainContainer>
       <TitleInitial>Tela Inicial</TitleInitial>
-      <TouchableOpacity>
-        <SubText>Casa moderna - venda</SubText>
-        <Image source={require('./../../assets/casa-moderna.png')} />
-        <SubText>#casa #venda #sobrado</SubText>
-        <SubText>R$ 500.000,00</SubText>
-      </TouchableOpacity>
+      <CardList>
+        
+        <Card title={'Casa moderna - venda'} source={{uri: 'https://i.imgur.com/hsEKiRT.png'}} tag='#casa #venda #sobrado' price={'R$ 500.000,00'}        
+        />
 
-
+        <Card title={'Casa moderna - aluguel'} source={{uri: 'https://i.imgur.com/hsEKiRT.png'}} tag='#casa #aluguel #sobrado' price={'R$ 500.000,00'}        
+        />
+      
+      </CardList>
     </MainContainer>
   );
 }

@@ -1,11 +1,18 @@
 import { TitleInitial } from './login-style'
 import Button from '../../src/components/button';
 import Input from '../../src/components/input'
-import React from 'react';
+import React, { useState } from 'react';
 import RadioButtonProfile from '../components/radioButtonProfile';
 import { MainContainer, Formulario, SubText } from './cadastro-style';
+import PasswordInput from '../components/passwordInput';
 
 const Cadastro:React.FC = () => {
+
+const [password, setPassword] = useState<string>('') 
+const [hidden, setHidden] = useState(true)
+const [confirmPassword, setConfirmPassword] = useState<string>('') 
+const [confirmHidden, setConfirmHidden] = useState(true)
+
   return (
     <MainContainer>
       <TitleInitial>Cadastre-se</TitleInitial>
@@ -15,9 +22,19 @@ const Cadastro:React.FC = () => {
         <SubText>Nome</SubText>
         <Input/>
         <SubText>Senha</SubText>
-        <Input/>
+        <PasswordInput
+          password={password}
+          setPassword={setPassword}
+          setHidden={setHidden}
+          hidden={hidden}/>
         <SubText>Confirmar senha</SubText>
-        <Input/>
+        <PasswordInput
+          password={confirmPassword}
+          setPassword={setConfirmPassword}
+          setHidden={setConfirmHidden}
+          hidden={confirmHidden}
+        />
+        
         <SubText>Nível de usuário</SubText>
         <RadioButtonProfile/>
       </Formulario>

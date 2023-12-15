@@ -1,6 +1,6 @@
 import React from "react"
-import { TextInputProps, View } from "react-native";
-import { PasswordTextInput } from "./passwordInput-style";
+import { TextInputProps, StyleSheet } from "react-native";
+import { PasswordTextInput, View } from "./passwordInput-style";
 import { IconButton } from "react-native-paper";
 
 
@@ -20,10 +20,18 @@ const PasswordInput: React.FC <PasswordProps> = ({password, setPassword, hidden,
         value={password}
         onChangeText={password => setPassword(password) }
         />
-      <IconButton icon="eye" size={20} onPress={() => setHidden(!hidden)}/>
+      <IconButton style={styles.icon} icon="eye" size={20} onPress={() => setHidden(!hidden)}/>
     </View>
     
   );
 };
+
+const styles = StyleSheet.create({
+  icon: {
+    position: 'absolute',
+    right: -5,
+    top: -5,
+  }
+})
 
 export default PasswordInput;
