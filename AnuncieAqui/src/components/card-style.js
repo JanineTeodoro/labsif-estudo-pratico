@@ -12,6 +12,12 @@ export const Title = styled.Text`
   textAlign: center;
 `
 
+export const Description = styled.Text`
+  color: #353535;
+  backgroundColor: #D9D9D9;
+  textAlign: center;
+`
+
 export const Image = styled.Image`
   width: 100%;
   height: 200px;

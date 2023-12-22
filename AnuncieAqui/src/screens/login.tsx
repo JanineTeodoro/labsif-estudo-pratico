@@ -8,17 +8,23 @@ import { useNavigation } from '@react-navigation/native';
 import { propsStack } from '../routes/stack';
 import { TextInput } from 'react-native-paper';
 import PasswordInput from '../components/passwordInput';
+import { useUserContext } from '../contexts/userContext';
 
 const Login:React.FC = () => {
 
+  const {login, currentUser} = useUserContext()
   const navigation = useNavigation<propsStack>();
   const handleCreateAccount = () => {
     navigation.navigate("Cadastro")
   }
   const handleLogin = () => {
-    navigation.navigate("TelaInicial")
+    login(email, password)
+    if(currentUser) {
+      navigation.navigate("TelaInicial")
+    }
   }
 
+  const [email, setEmail] = useState<string>('')
   const [password, setPassword] = useState<string>('') 
   const [hidden, setHidden] = useState(true)
 
@@ -28,7 +34,7 @@ const Login:React.FC = () => {
       <Image source={require('./../../assets/logo.png')} />
       <Formulario>
         <Text>Email</Text>
-        <Input placeholder={"email@email.com"} />
+        <Input value={email} setValue={setEmail} placeholder={"email@email.com"} />
         <Text>Senha</Text>
       <PasswordInput
       password={password}

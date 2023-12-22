@@ -4,6 +4,7 @@ import Cadastro from '../screens/cadastro';
 import Login from '../screens/login';
 import TelaInicial from '../screens/telaInicial';
 import AdicionarAnuncio from '../screens/adicionarAnuncio';
+import InfoAnuncio from '../screens/infoAnuncio';
 
 
 const { Navigator, Screen } = createNativeStackNavigator();
@@ -15,6 +16,7 @@ export default function () {
       <Screen name="Cadastro" component={Cadastro}/>
       <Screen name="TelaInicial" component={TelaInicial}/>
       <Screen name="AdicionarAnuncio" component={AdicionarAnuncio}/>
+      <Screen name="InfoAnuncio" component={InfoAnuncio}/>
     </Navigator>
   );
 }

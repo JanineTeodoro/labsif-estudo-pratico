@@ -5,36 +5,37 @@ import Card from '../components/card';
 import { ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { propsStack } from '../routes/stack';
+import InfoAnuncio from './infoAnuncio';
+import { useUserContext } from '../contexts/userContext';
+import { useAnuncioContext } from '../contexts/anunciosContext';
 
 const TelaInicial:React.FC = () => {
 
+  const {currentUser} = useUserContext()
+  const {anuncios} = useAnuncioContext()
   const navigation = useNavigation<propsStack>();
   const handlePress = () => {
     navigation.navigate("AdicionarAnuncio")
+  }
+
+  const handlePressCard = (id) => {
+    navigation.navigate("InfoAnuncio", {
+      id: id
+    })
   }
 
   return (
     <MainContainer>
       <ScrollView>
         <CardList>
-          
-          <Card title={'Casa moderna - venda'} source={{uri: 'https://i.imgur.com/hsEKiRT.png'}} tag='#casa #venda #sobrado' price={'R$ 500.000,00'}        
-          />
-
-          <Card title={'Casa moderna - aluguel'} source={{uri: 'https://i.imgur.com/hsEKiRT.png'}} tag='#casa #aluguel #sobrado' price={'R$ 500.000,00'}        
-          />
-
-          <Card title={'Casa moderna - aluguel'} source={{uri: 'https://i.imgur.com/hsEKiRT.png'}} tag='#casa #aluguel #sobrado' price={'R$ 500.000,00'}        
-          />
-          
-          <Card title={'Casa moderna - aluguel'} source={{uri: 'https://i.imgur.com/hsEKiRT.png'}} tag='#casa #aluguel #sobrado' price={'R$ 500.000,00'}        
-          />
+          {anuncios.map(anuncio => <Card cardId={anuncio.id} title={anuncio.title} source={{uri: anuncio.image}} tag={anuncio.tag} price={anuncio.price} onPress={() => handlePressCard(anuncio.id)} />
+          )}
         
         </CardList>
       </ScrollView>
-      <TouchableOpacity onPress={handlePress}>
+      {currentUser.access != "low" && <TouchableOpacity onPress={handlePress}>
       <Text>+</Text>
-      </TouchableOpacity>
+      </TouchableOpacity>}
     </MainContainer>
   );
 }

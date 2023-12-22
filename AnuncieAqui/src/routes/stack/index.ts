@@ -5,6 +5,7 @@ export type propsNavigationStack = {
   Cadastro: any;
   TelaInicial: any;
   AdicionarAnuncio: any;
+  InfoAnuncio: any;
 };
 
 export type propsStack = NativeStackNavigationProp<propsNavigationStack>;
