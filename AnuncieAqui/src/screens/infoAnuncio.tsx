@@ -1,4 +1,4 @@
-import { RouteProp } from '@react-navigation/native';
+import { RouteProp, useNavigation } from '@react-navigation/native';
 import {  } from "./login-style";
 import { useAnuncioContext } from '../contexts/anunciosContext';
 import { useEffect, useState } from 'react';
@@ -7,6 +7,7 @@ import { CardList } from './telaInicial-style';
 import { ButtonContainer, ButtonDelete, ButtonEdit, Container, EditDeleteContainer, TextDelete, TextEdit, Image, MainContainer } from './infoAnuncio-style';
 import ButtonDefault from '../components/button';
 import Button from '../components/button';
+import { propsStack } from '../routes/stack';
 
 type InfoAnuncioProps = {
   route: RouteProp<{ params: { id: string | number[] }}, 'params'>
@@ -23,14 +24,20 @@ type Anuncio = {
 
 const InfoAnuncio:React.FC<InfoAnuncioProps> = ({route}) => {
 
+  const navigation = useNavigation<propsStack>();
+
   const {id} = route.params
   const [anuncio, setAnuncio] = useState<Anuncio>()
-  const {getAnuncio} = useAnuncioContext()
+  const {excluir, getAnuncio} = useAnuncioContext()
 
   const comprar = () => {
     alert("Um de nossos vendedores entrará em contato!")
   }
 
+  const handleDelete = (id: string | number[]) => {
+    excluir(id)
+    navigation.navigate("TelaInicial")
+  }
 
   useEffect( () => {
     setAnuncio(getAnuncio(id))
@@ -46,7 +53,7 @@ const InfoAnuncio:React.FC<InfoAnuncioProps> = ({route}) => {
             <ButtonEdit>
               <TextEdit>Editar</TextEdit>
             </ButtonEdit>
-            <ButtonDelete variant={'tertiary'}>
+            <ButtonDelete onPress={() => handleDelete(anuncio?.id)} variant={'tertiary'}>
               <TextDelete>Excluir</TextDelete>
             </ButtonDelete>
           </EditDeleteContainer>

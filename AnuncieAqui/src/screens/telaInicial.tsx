@@ -23,6 +23,7 @@ const TelaInicial:React.FC = () => {
       id: id
     })
   }
+  console.log(anuncios)
 
   return (
     <MainContainer>

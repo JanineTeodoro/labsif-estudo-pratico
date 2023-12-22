@@ -15,7 +15,7 @@ type AnuncioContextProps = {
   criarAnuncio: (title, price, description, tag, image) => void;
   getAnuncio: (id) => Anuncio;
   editar: () => void;
-  excluir: () => void;
+  excluir: (id) => void;
 }
 
 const AnuncioContext = createContext<AnuncioContextProps>({
@@ -40,7 +40,10 @@ export const AnuncioProvider: React.FC<{children: React.ReactNode}> = ({ childre
     setAnuncios([...anuncios,{id: uuid.v4(), title, price, description, tag, image}])
   }
   const editar = () => {}
-  const excluir = () => {}
+  const excluir = (id) => {
+    const newAnuncios = anuncios.filter(anuncio => anuncio.id !== id)
+    setAnuncios(newAnuncios)
+  }
 
   return (
     <AnuncioContext.Provider value={{ anuncios, criarAnuncio, getAnuncio, editar, excluir }}>
