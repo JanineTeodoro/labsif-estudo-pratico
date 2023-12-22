@@ -8,6 +8,7 @@ import { ButtonContainer, ButtonDelete, ButtonEdit, Container, EditDeleteContain
 import ButtonDefault from '../components/button';
 import Button from '../components/button';
 import { propsStack } from '../routes/stack';
+import { useUserContext } from '../contexts/userContext';
 
 type InfoAnuncioProps = {
   route: RouteProp<{ params: { id: string | number[] }}, 'params'>
@@ -24,11 +25,17 @@ type Anuncio = {
 
 const InfoAnuncio:React.FC<InfoAnuncioProps> = ({route}) => {
 
+  const {currentUser} = useUserContext()
   const navigation = useNavigation<propsStack>();
 
   const {id} = route.params
   const [anuncio, setAnuncio] = useState<Anuncio>()
   const {excluir, getAnuncio} = useAnuncioContext()
+
+  const handleEdit = (id: string | number[]) => {
+    navigation.navigate("AdicionarAnuncio", {id: id})
+  }
+
 
   const comprar = () => {
     alert("Um de nossos vendedores entrará em contato!")
@@ -50,12 +57,12 @@ const InfoAnuncio:React.FC<InfoAnuncioProps> = ({route}) => {
         <Card title={anuncio?.title} description={anuncio?.description} cardId={anuncio?.id} tag={anuncio?.tag} source={{uri: anuncio?.image}} price={anuncio?.price}/>
         <ButtonContainer>
           <EditDeleteContainer>
-            <ButtonEdit>
+            {currentUser.access !== "low" && <ButtonEdit onPress={() => handleEdit(anuncio?.id)} >
               <TextEdit>Editar</TextEdit>
-            </ButtonEdit>
-            <ButtonDelete onPress={() => handleDelete(anuncio?.id)} variant={'tertiary'}>
+            </ButtonEdit>}
+            {currentUser.access === "high" && <ButtonDelete onPress={() => handleDelete(anuncio?.id)} variant={'tertiary'}>
               <TextDelete>Excluir</TextDelete>
-            </ButtonDelete>
+            </ButtonDelete>}
           </EditDeleteContainer>
           <Button onPress={comprar} variant={'primary'}>Comprar</Button>
         </ButtonContainer>
