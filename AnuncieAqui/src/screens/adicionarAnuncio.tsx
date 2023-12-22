@@ -66,7 +66,7 @@ const AdicionarAnuncio:React.FC<AdicionarAnuncioProps> = ({route}) => {
           <Text>Título do anúncio</Text>
           <Input value={title} setValue={setTitle}/>
           <Text>Preço</Text>
-          <Input value={price} setValue={setPrice} placeholder={"R$"} />
+          <Input value={price} setValue={setPrice} placeholder={"R$"}/>
           <Text>Descrição</Text>
           <TextInput
             value={description}

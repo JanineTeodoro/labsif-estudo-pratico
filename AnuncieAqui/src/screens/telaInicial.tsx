@@ -8,6 +8,7 @@ import { propsStack } from '../routes/stack';
 import InfoAnuncio from './infoAnuncio';
 import { useUserContext } from '../contexts/userContext';
 import { useAnuncioContext } from '../contexts/anunciosContext';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const TelaInicial:React.FC = () => {
 
@@ -26,18 +27,20 @@ const TelaInicial:React.FC = () => {
   console.log(anuncios)
 
   return (
-    <MainContainer>
-      <ScrollView>
-        <CardList>
-          {anuncios.map(anuncio => <Card cardId={anuncio.id} title={anuncio.title} source={{uri: anuncio.image}} tag={anuncio.tag} price={anuncio.price} onPress={() => handlePressCard(anuncio.id)} />
-          )}
-        
-        </CardList>
-      </ScrollView>
-      {currentUser.access != "low" && <TouchableOpacity onPress={handlePress}>
-      <Text>+</Text>
-      </TouchableOpacity>}
-    </MainContainer>
+    <SafeAreaView>
+      <MainContainer>
+        <ScrollView>
+          <CardList>
+            {anuncios.map(anuncio => <Card cardId={anuncio.id} title={anuncio.title} source={{uri: anuncio.image}} tag={anuncio.tag} price={anuncio.price} onPress={() => handlePressCard(anuncio.id)} />
+            )}
+          
+          </CardList>
+        </ScrollView>
+        {currentUser.access != "low" && <TouchableOpacity onPress={handlePress}>
+        <Text>+</Text>
+        </TouchableOpacity>}
+      </MainContainer>
+    </SafeAreaView>
   );
 }
 

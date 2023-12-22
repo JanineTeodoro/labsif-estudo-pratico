@@ -3,7 +3,7 @@ import styled from "styled-components/native";
 export const MainContainer = styled.View`
   justifyContent: flex-start;
   alignItems: stretch;
-  minHeight: 100%;
+  minHeight: 90%;
 `
 
 export const CardList = styled.View`

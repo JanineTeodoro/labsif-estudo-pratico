@@ -11,6 +11,7 @@ export const Image = styled.Image`
   width: 20%;
   objectFit: contain;
   flex: 1;
+  marginTop: 50px;
 `
 
 export const Container = styled.View`

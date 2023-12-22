@@ -13,10 +13,10 @@ export default function () {
   return (
     <Navigator>
       <Screen name="Login" component={Login} options={{headerShown: false}}/>
-      <Screen name="Cadastro" component={Cadastro}/>
-      <Screen name="TelaInicial" component={TelaInicial}/>
-      <Screen name="AdicionarAnuncio" component={AdicionarAnuncio}/>
-      <Screen name="InfoAnuncio" component={InfoAnuncio}/>
+      <Screen name="Cadastro" component={Cadastro} options={{headerShown: false}} />
+      <Screen name="TelaInicial" component={TelaInicial} options={{headerShown: false}}/>
+      <Screen name="AdicionarAnuncio" component={AdicionarAnuncio} options={{headerShown: false}}/>
+      <Screen name="InfoAnuncio" component={InfoAnuncio} options={{headerShown: false}}/>
     </Navigator>
   );
 }
