@@ -43,3 +43,15 @@ Verifique se a autenticação JWT está implementada corretamente e se as rotas 
 Avalie se os princípios SOLID estão sendo seguidos, tanto no backend quanto no frontend.
 Verifique se o versionamento está sendo feito de forma adequada, com mensagens de commit claras e explicativas.
 
+# Desenvolvimento:
+
+**Para acessar o projeto:**
+- Clone este repositório em sua máquina local usando o seguinte comando:
+   ```bash
+   git clone https://github.com/JanineTeodoro/labsif-estudo-pratico.git
+- Ou, baixe a apk em um celular android diretamente [por este link](https://drive.google.com/file/d/1A4YPshuZBBrGlMXXS35Tm6F-6oqLLOGP/view?usp=sharing).
+
+**Usuários cadastrados:**
+**Nível baixo:** *login:* roberto@email.com | *senha:* 1234
+**Nível médio:** *login:* larissa@email.com | *senha:* 1234
+**Nível alto:** *login:* priscila@email.com | *senha:* 1234
