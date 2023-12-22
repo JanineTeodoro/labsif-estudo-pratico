@@ -52,6 +52,6 @@ Verifique se o versionamento está sendo feito de forma adequada, com mensagens 
 - Ou, baixe a apk em um celular android diretamente [por este link](https://drive.google.com/file/d/1A4YPshuZBBrGlMXXS35Tm6F-6oqLLOGP/view?usp=sharing).
 
 **Usuários cadastrados:**
-**Nível baixo:** *login:* roberto@email.com | *senha:* 1234
-**Nível médio:** *login:* larissa@email.com | *senha:* 1234
-**Nível alto:** *login:* priscila@email.com | *senha:* 1234
+- **Nível baixo:** *login:* roberto@email.com | *senha:* 1234
+- **Nível médio:** *login:* larissa@email.com | *senha:* 1234
+- **Nível alto:** *login:* priscila@email.com | *senha:* 1234
